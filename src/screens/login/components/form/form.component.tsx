@@ -1,19 +1,38 @@
-import { useCallback, useState } from 'react'
-import Button from '../../../../components/buttons/button/button.component'
+import React, {useCallback, useEffect, useMemo, useState} from 'react'
 import InputText from '../../../../components/inputs/input-text/input-text.component'
+import Button from '../../../../components/buttons/button/button.component'
 import * as yup from 'yup'
 import { ErrorMessage } from './form.types'
 import { ErrorDescription } from './form.styled'
 import { userActions } from '../../../../store/user/user.slice'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { isAuthenticated, isLoading } from '../../../../store/user/user.selectors'
+import { useLocation, useNavigate } from 'react-router-dom'
+import { HomePath } from '../../../home/home.types'
 
 const errorInitial = ''
 
 export default function Form() {
-    const [data, setData] = useState({ email: '', password: ''})
+    const [data, setData] = useState({ email: '', password: '' })
     const [error, setError] = useState(errorInitial)
+  
 
     const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const location = useLocation()
+      const isUserAuthentication = useSelector(isAuthenticated);
+    const isUserLoading = useSelector(isLoading)
+
+   const handleForm = () => {
+    const to =  HomePath
+    navigate(to)
+
+   }
+
+    const buttonDescription = useMemo(
+        () => isUserLoading ? 'Carregando...' : 'Entrar',
+        [isUserLoading]
+    )
 
     const resetError = useCallback(
         () => setError(errorInitial),
@@ -22,12 +41,12 @@ export default function Form() {
 
     const handleChange = useCallback(
         (event: any) => setData(prevState => ({
-        ...prevState,
-        [event.target.name]: event.target.value,
-    })),
-    [setData]
+            ...prevState,
+            [event.target.name]: event.target.value,
+        })),
+        [setData]
     )
-    
+
     const validation = useCallback(
         async () => {
             const schema = yup.object().shape({
@@ -36,18 +55,17 @@ export default function Form() {
             })
 
             try {
-                await schema.validate(data);
-                resetError();
-                console.log(true);
+                await schema.validate(data)
+                resetError()
 
-                return true;
-
+                return handleForm()
             } catch (error) {
                 // @ts-ignore
-                setError(error.errors[0]);
-                
+                setError(error.errors[0])
+
                 return false
             }
+
         },
         [data, setError]
     )
@@ -57,7 +75,6 @@ export default function Form() {
             if(await validation()) {
                 dispatch(userActions.login(data))
             }
-            console.log(data)
         },
         [validation, data]
     )
@@ -68,7 +85,7 @@ export default function Form() {
             <InputText type={'text'} placeholder={'E-mail'} name={'email'} onChange={(evento): void => handleChange(evento)} />
             <InputText type={'password'} placeholder={'Senha'} name={'password'} onChange={(evento) => handleChange(evento)} />
             <ErrorDescription><span className={!error ? 'error-empty' : ''}>{error}</span></ErrorDescription>
-            <Button primary onClick={onSubmit}>Entrar</Button>        
+            <Button primary onClick={onSubmit}>{buttonDescription}</Button>        
         </>
     )
 }

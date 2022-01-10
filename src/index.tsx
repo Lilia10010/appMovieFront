@@ -9,7 +9,7 @@ ReactDOM.render(
   <React.StrictMode>
     <BrowserRouter>
       <App />
-      <Link to="/login" style={{color: 'pink'}}>Login</Link>
+      {/* <Link to="/login" style={{color: 'pink'}}>Login</Link> */}
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
