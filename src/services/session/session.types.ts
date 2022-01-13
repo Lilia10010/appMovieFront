@@ -1,3 +1,3 @@
 export type Session = {
-    accessToken: string
+  accessToken: string
 }

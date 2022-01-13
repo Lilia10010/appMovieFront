@@ -1,20 +1,20 @@
-import { Action } from '../store/store.types'
+import { Action } from "../store/store.types";
 
 export const AccessTokenStorageKey = 'ACCESS_TOKEN'
 
 export type User = {
-    name?: string
-    email?: string
-    password?: string
-    id?: string
+  name?: string
+  email?: string
+  password?: string
+  id?: string
 }
 
 export type UserState = {
-    data: User | null
-    error: string
-    settings: {
-        isLoading: boolean
-    }
+  data: User | null
+  error: string
+  settings: {
+    isLoading: boolean
+  }
 }
 
 export type UserAction = Action<User>

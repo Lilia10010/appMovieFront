@@ -1,4 +1,4 @@
 export function userService() {
 
-    return {  }
+  return {  }
 }
