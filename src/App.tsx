@@ -23,7 +23,6 @@ function App() {
     <Provider store={store}>
       <ThemeProvider theme={theme}>
         <GlobalStyle />
-          <Link to="/login" style={{color: 'pink'}}>Login</Link>
         <Routes>
           <Route path={LoginPath} element={<Login />} />
           <Route path={HomePath} element={<UserGuard><Home/></UserGuard>} />
