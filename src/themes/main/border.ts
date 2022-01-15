@@ -1,9 +1,9 @@
-const radius = {
-    5: '5px',
+const radius={
+  5: '5px',  
 }
 
 const border = {
-    radius,
+  radius
 }
 
 export default border

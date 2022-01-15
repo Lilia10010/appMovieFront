@@ -19,8 +19,8 @@
 
 
 <h3 align="center">
-    APP: <a href="https://appp-movie-7940ty1he-lilia10010.vercel.app/login" target="_blank">Link do deploy<a> -->
-</h3> -->
+    APP: <a href="https://appp-movie-7940ty1he-lilia10010.vercel.app/login" target="_blank">Link do deploy<a>
+</h3>
 <br />
 
 <p align="center"> Developed by 🍄 Lília Paula </p>
