@@ -25,7 +25,8 @@ function App() {
         <GlobalStyle />
         <Routes>
           <Route path={LoginPath} element={<Login />} />
-          <Route path={HomePath} element={<UserGuard><Home/></UserGuard>} />
+         {/*  <Route path={HomePath} element={<UserGuard><Home/></UserGuard>} /> */}
+          <Route path={HomePath} element={<Home/>} />
         </Routes>
       </ThemeProvider>
     </Provider>
