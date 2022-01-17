@@ -1,13 +1,17 @@
 {
   "files": {
-    "main.js": "/static/js/main.dcdf0340.js",
+    "main.css": "/static/css/main.0a4b4b17.css",
+    "main.js": "/static/js/main.3a9f5f2c.js",
     "static/js/787.cfbdcec9.chunk.js": "/static/js/787.cfbdcec9.chunk.js",
+    "static/media/banner-homem-aranha-3-s.jpg": "/static/media/banner-homem-aranha-3-s.eb03093bff42d57755f8.jpg",
     "static/media/logo.svg": "/static/media/logo.b9cbc91af41bf07d031ed7868178dcf7.svg",
     "index.html": "/index.html",
-    "main.dcdf0340.js.map": "/static/js/main.dcdf0340.js.map",
+    "main.0a4b4b17.css.map": "/static/css/main.0a4b4b17.css.map",
+    "main.3a9f5f2c.js.map": "/static/js/main.3a9f5f2c.js.map",
     "787.cfbdcec9.chunk.js.map": "/static/js/787.cfbdcec9.chunk.js.map"
   },
   "entrypoints": [
-    "static/js/main.dcdf0340.js"
+    "static/css/main.0a4b4b17.css",
+    "static/js/main.3a9f5f2c.js"
   ]
 }
